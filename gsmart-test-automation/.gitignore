@@ -1,8 +1,10 @@
 /target/*
 /.classpath
+/*.class
 /*.project
 /.settings
 /test-output/
+/env.properties
 /logs/
 /screenshots/
 */pom.properties
