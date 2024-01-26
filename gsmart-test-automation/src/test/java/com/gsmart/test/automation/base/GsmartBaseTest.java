@@ -1,5 +1,7 @@
 package com.gsmart.test.automation.base;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -11,6 +13,8 @@ import org.testng.annotations.BeforeSuite;
 import com.gsmart.test.automation.utils.PropertyReader;
 
 public class GsmartBaseTest {
+	
+	public static final Logger logger = LogManager.getLogger(GsmartBaseTest.class);
 
 	// WebDriver
 	// default
@@ -21,9 +25,9 @@ public class GsmartBaseTest {
 	@BeforeSuite
 	public void init() {
 		String browserValue = PropertyReader.getEnvProperty("browser");
-		System.out.println(" Browser is " + browserValue);
+		logger.info(" Browser is " + browserValue);
 		url = PropertyReader.getEnvProperty("url");
-		System.out.println(" Launching the URL " + url);
+		logger.info(" Launching the URL " + url);
 
 		// If the browser value is Chrome
 
@@ -31,21 +35,21 @@ public class GsmartBaseTest {
 			String localChromPath = PropertyReader.getEnvProperty("chromePath");
 			System.setProperty("webdriver.chrome.driver", localChromPath);
 
-			System.out.println(" Launching chrome browser using the path " + localChromPath);
+			logger.info(" Launching chrome browser using the path " + localChromPath);
 			driver = new ChromeDriver();
 		}
 
 		else if (browserValue.equals("edge")) {
 			String localEdgePath = PropertyReader.getEnvProperty("edgePath");
 			System.setProperty("webdriver.edge.driver", localEdgePath);
-			System.out.println(" Launching Edge browser using the path " + localEdgePath);
+			logger.info(" Launching Edge browser using the path " + localEdgePath);
 			driver = new EdgeDriver();
 		}
 
 		else if (browserValue.equals("firefox")) {
 			String localFirefoxPath = PropertyReader.getEnvProperty("firefoxPath");
 			System.setProperty("webdriver.gecko.driver", localFirefoxPath);
-			System.out.println(" Launching Firefox browser using the path " + localFirefoxPath);
+			logger.info(" Launching Firefox browser using the path " + localFirefoxPath);
 			driver = new FirefoxDriver();
 
 		}
@@ -53,7 +57,7 @@ public class GsmartBaseTest {
 		else if (browserValue.equals("safari")) {
 			String localSafariPath = PropertyReader.getEnvProperty("safariPath");
 			System.setProperty("webdriver.safari.driver", localSafariPath);
-			System.out.println(" Launching Safari browser using the path " + localSafariPath);
+			logger.info(" Launching Safari browser using the path " + localSafariPath);
 			driver = new SafariDriver();
 
 		}
@@ -62,7 +66,7 @@ public class GsmartBaseTest {
 
 	@AfterSuite
 	public void teardown() {
-		System.out.println(" Closing the session ");
+		logger.info(" Closing the session ");
 		driver.quit();
 
 	}
