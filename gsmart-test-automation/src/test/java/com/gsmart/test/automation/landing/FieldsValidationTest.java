@@ -22,10 +22,7 @@ public class FieldsValidationTest extends GsmartBaseTest {
 		WebElement header = driver.findElement(By.xpath("//h2[contains(text(),'GS Mart')]")); 
 		logger.info(" Verifying the header text");
 		Assert.assertTrue(header.isDisplayed(), "Header is not loaded");
-		
 		logger.info(" launchTest is successful ");
-
-
 	}
 
 	
