@@ -28,7 +28,6 @@ public class LoginNavigationTest extends GsmartBaseTest {
 	@Test
 	public void launchAndNavigateToLoginTest() {
 
-		PageFactory.initElements(driver, this);
 		logger.info("Launching the url");
 		driver.get(url);
 		Assert.assertTrue(loginLink.isDisplayed(), "login link not displayed");

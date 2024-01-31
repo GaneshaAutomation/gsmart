@@ -2,10 +2,8 @@ package com.gsmart.test.automation.login;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -32,7 +30,6 @@ public class LoginHeaderTest extends GsmartBaseTest {
 	@Test
 	public void launchAndVerifyLoginLinkTest() {
 		// Helps you to avoid null pointer exceptions for the global varibale
-		PageFactory.initElements(driver, this);
 		logger.info("Launching the URL " + url);
 		driver.get(url);
 		logger.info("Verifying the logo ");

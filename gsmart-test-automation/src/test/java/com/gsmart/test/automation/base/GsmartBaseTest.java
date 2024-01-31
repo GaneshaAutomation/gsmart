@@ -7,11 +7,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 
 import com.gsmart.test.automation.listener.GsmartListner;
+import com.gsmart.test.automation.pages.home.HomePage;
 import com.gsmart.test.automation.utils.PropertyReader;
 
 @Listeners(GsmartListner.class)
@@ -67,6 +69,7 @@ public class GsmartBaseTest {
 		
 		// Once the driver is loaded with the browser, give it to listener
 		GsmartListner.driver = driver;
+		HomePage.driver = driver;
 
 	}
 
