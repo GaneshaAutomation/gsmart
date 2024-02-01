@@ -1,4 +1,4 @@
-/target/*
+/target/
 /.classpath
 /*.class
 /*.project
@@ -8,5 +8,4 @@
 /logs/
 /screenshots/
 */pom.properties
-*/META-INF/*
-/target/
+*/META-INF/
