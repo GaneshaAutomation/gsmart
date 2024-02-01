@@ -2,14 +2,13 @@ package com.gsmart.test.automation.pages.home;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+import com.gsmart.test.automation.pages.base.BasePage;
+import com.gsmart.test.automation.pages.login.LoginPage;
 
-	public static WebDriver driver;
+public class HomePage  extends BasePage{
 
 	// All Elements of the page
 
@@ -17,11 +16,7 @@ public class HomePage {
 
 	// Actions(type, click) and Navigations
 
-	public HomePage() {
-		super();
-		PageFactory.initElements(driver, this);
-
-	}
+	
 
 	public static final Logger logger = LogManager.getLogger(HomePage.class);
 
@@ -31,8 +26,6 @@ public class HomePage {
 	@FindBy(name = "search")
 	WebElement searchBox;
 
-	@FindBy(linkText = "Shopping Center")
-	WebElement logoLink;
 
 	@FindBy(linkText = "Exercise")
 	WebElement exerciseLink;
@@ -82,11 +75,7 @@ public class HomePage {
 		return present;
 	}
 
-	public boolean isLogoLinkPresent() {
-		logger.info("Verifying Logo link");
-		boolean present = logoLink.isDisplayed();
-		return present;
-	}
+	
 
 	public boolean isExerciseLinkPresent() {
 		logger.info("Verifying exerciseLink");
@@ -122,8 +111,10 @@ public class HomePage {
 
 	}
 
-	public void clickOnBuyNowButton() {
+	public LoginPage clickOnBuyNowButton() {
 		logger.info("Clicking on buyNowbtn");
 		buyNowButton.click();
+		LoginPage loginPage = new LoginPage();
+		return loginPage;
 	}
 }

@@ -7,12 +7,14 @@ import org.testng.annotations.Test;
 
 import com.gsmart.test.automation.base.GsmartBaseTest;
 import com.gsmart.test.automation.pages.home.HomePage;
+import com.gsmart.test.automation.pages.login.LoginPage;
 
 public class BuyNowTest extends GsmartBaseTest {
 
 	public static final Logger logger = LogManager.getLogger(BuyNowTest.class);
 
 	HomePage homePage;
+	LoginPage loginPage;
 
 	@Test
 	public void launchAndVerifySearchBoxTest() {
@@ -32,8 +34,12 @@ public class BuyNowTest extends GsmartBaseTest {
 
 	@Test(dependsOnMethods = "searchForProductTest")
 	public void buyNowTest() {
-		homePage.clickOnBuyNowButton();
+		loginPage = homePage.clickOnBuyNowButton();
+		Assert.assertTrue(loginPage.isLoginHeaderPresent(), "Login header missing");
 
+		homePage = loginPage.clickOnLogo();
+
+		Assert.assertTrue(homePage.isBuyNowButtonPresent(), "Buy no wi s not present");
 	}
 
 }
