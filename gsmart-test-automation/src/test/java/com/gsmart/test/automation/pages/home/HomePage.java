@@ -49,6 +49,9 @@ public class HomePage {
 	@FindBy(xpath = "//div[contains(text(),'Showing')]")
 	WebElement successMessageForSearch;
 
+	@FindBy(xpath = "//button[contains(text(),'Buy Now')]")
+	WebElement buyNowButton;
+
 	public boolean isSuccessMessageForSearchPresent() {
 		logger.info("Verifying successMessageForSearch");
 		boolean present = successMessageForSearch.isDisplayed();
@@ -112,4 +115,15 @@ public class HomePage {
 		searchButton.click();
 	}
 
+	public boolean isBuyNowButtonPresent() {
+		logger.info("Verifying buynowButton ");
+		boolean present = buyNowButton.isDisplayed();
+		return present;
+
+	}
+
+	public void clickOnBuyNowButton() {
+		logger.info("Clicking on buyNowbtn");
+		buyNowButton.click();
+	}
 }
