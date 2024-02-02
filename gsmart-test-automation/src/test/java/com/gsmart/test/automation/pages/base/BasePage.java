@@ -7,7 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.gsmart.test.automation.pages.exercise.ExercisePage;
 import com.gsmart.test.automation.pages.home.HomePage;
+import com.gsmart.test.automation.pages.login.LoginPage;
 import com.gsmart.test.automation.pages.register.RegisterPage;
 
 public class BasePage {
@@ -23,18 +25,36 @@ public class BasePage {
 
 	}
 
+	@FindBy(linkText = "login")
+	WebElement loginLink;
+
 	@FindBy(linkText = "Shopping Center")
 	WebElement logoLink;
-	
+
 	@FindBy(linkText = "Register")
 	WebElement registerLink;
+
+	@FindBy(linkText = "Exercise")
+	WebElement exerciseLink;
+
+	public boolean isExerciseLinkPresent() {
+		logger.info("Verifying exerciseLink");
+		boolean present = exerciseLink.isDisplayed();
+		return present;
+	}
+
+	public boolean isLoginLinkPresent() {
+		logger.info("Verifying loginLink");
+		boolean present = loginLink.isDisplayed();
+		return present;
+	}
 
 	public boolean isLogoLinkPresent() {
 		logger.info("Verifying Logo link");
 		boolean present = logoLink.isDisplayed();
 		return present;
 	}
-	
+
 	public boolean isRegisterLinkPresent() {
 		logger.info("Verifying registerLink ");
 		boolean present = registerLink.isDisplayed();
@@ -47,7 +67,21 @@ public class BasePage {
 		HomePage homePage = new HomePage();
 		return homePage;
 	}
-	
+
+	public ExercisePage clickOnExercise() {
+		logger.info("Clikcing on Exercise ");
+		exerciseLink.click();
+		ExercisePage exercisePage = new ExercisePage();
+		return exercisePage;
+	}
+
+	public LoginPage clickOnLoginLink() {
+		logger.info("Clikcing on login link ");
+		loginLink.click();
+		LoginPage loginPage = new LoginPage();
+		return loginPage;
+	}
+
 	public RegisterPage clickOnRegister() {
 		logger.info("Clikcing on Register link ");
 		registerLink.click();

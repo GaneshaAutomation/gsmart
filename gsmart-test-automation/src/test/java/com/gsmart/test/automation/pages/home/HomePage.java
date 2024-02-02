@@ -27,11 +27,6 @@ public class HomePage  extends BasePage{
 	WebElement searchBox;
 
 
-	@FindBy(linkText = "Exercise")
-	WebElement exerciseLink;
-
-	@FindBy(linkText = "login")
-	WebElement loginLink;
 
 	@FindBy(xpath = "//input[@value='Search']")
 	WebElement searchButton;
@@ -72,20 +67,6 @@ public class HomePage  extends BasePage{
 	public boolean isSearchBoxPresent() {
 		logger.info("Verifying Search box");
 		boolean present = searchBox.isDisplayed();
-		return present;
-	}
-
-	
-
-	public boolean isExerciseLinkPresent() {
-		logger.info("Verifying exerciseLink");
-		boolean present = exerciseLink.isDisplayed();
-		return present;
-	}
-
-	public boolean isLoginLinkPresent() {
-		logger.info("Verifying loginLink");
-		boolean present = loginLink.isDisplayed();
 		return present;
 	}
 
