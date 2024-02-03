@@ -27,6 +27,9 @@ public class ExercisePage extends BasePage {
 	@FindBy(id = "vehicle")
 	WebElement carDropDown;
 
+	@FindBy(id = "generation")
+	WebElement ageDropDown;
+
 	public boolean isCarDropDownPresent() {
 		logger.info("Verifying car dropdown");
 		boolean isPresent = carDropDown.isDisplayed();
@@ -51,6 +54,12 @@ public class ExercisePage extends BasePage {
 		return isPresent;
 	}
 
+	public boolean isAgeDropDownPresent() {
+		logger.info("Verifying age dropdown");
+		boolean isPresent = ageDropDown.isDisplayed();
+		return isPresent;
+	}
+
 	public void selectCityDd(String city) {
 
 		logger.info("Selecting City from Dropdown");
@@ -64,6 +73,14 @@ public class ExercisePage extends BasePage {
 		logger.info("Selecting Car from Dropdown");
 		Select carDropdown = new Select(carDropDown);
 		carDropdown.selectByVisibleText(car);
+
+	}
+
+	public void selectAgeDd(int age) {
+
+		logger.info("Selecting Age from Dropdown");
+		Select ageDropdown = new Select(ageDropDown);
+		ageDropdown.selectByIndex(age);
 
 	}
 }
