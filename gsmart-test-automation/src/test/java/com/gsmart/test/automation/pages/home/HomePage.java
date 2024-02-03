@@ -96,4 +96,10 @@ public class HomePage  extends BasePage{
 		LoginPage loginPage = new LoginPage();
 		return loginPage;
 	}
+	public void clickOnAddToCartButton() {
+		logger.info("Clicking on add to cart");
+		addToCartBtn.click();
+		
+		
+	}
 }

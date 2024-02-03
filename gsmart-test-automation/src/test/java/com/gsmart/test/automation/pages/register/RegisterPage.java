@@ -13,12 +13,21 @@ public class RegisterPage extends BasePage {
 
 	@FindBy(xpath = "//h2[contains(text(),'Registration Form')]")
 	WebElement registerHeader;
+	
+	@FindBy(xpath = "//button[contains(text(),'Regist')]")
+	WebElement registerButton;
+	
 
 	public boolean isRegHeaderPresent() {
 		logger.info("Verifying the reg header");
 		boolean isPresent = registerHeader.isDisplayed();
 		return isPresent;
 
+	}
+	
+	public void clickOnRegisterButton() {
+		logger.info("Clicking on Register btn");
+		registerButton.click();
 	}
 
 }
