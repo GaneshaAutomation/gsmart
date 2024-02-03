@@ -18,6 +18,9 @@ public class LoginPage extends BasePage{
 
 	@FindBy(xpath = "//h2[contains(text(),'Login Form')]")
 	WebElement loginHeader;
+	
+	@FindBy(xpath = "//button[contains(text(),'Login')]")
+	WebElement loginButton;
 
 	public boolean isLoginHeaderPresent() {
 
@@ -25,6 +28,11 @@ public class LoginPage extends BasePage{
 		boolean isPresent = loginHeader.isDisplayed();
 		return isPresent;
 
+	}
+	
+	public void clickOnLoginButton() {
+		logger.info("Clicking on login btn");
+		loginButton.click();
 	}
 
 }
