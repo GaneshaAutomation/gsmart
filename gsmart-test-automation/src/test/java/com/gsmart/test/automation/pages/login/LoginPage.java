@@ -25,10 +25,43 @@ public class LoginPage extends BasePage {
 	@FindBy(name = "password")
 	WebElement passwordField;
 
+	@FindBy(xpath = "//label[contains(text(),'Username')]")
+	WebElement userNameHeader;
+
+	@FindBy(xpath = "//label[contains(text(),'Password')]")
+	WebElement passwordHeader;
+
+	@FindBy(xpath = "//label[contains(text(),'Login As')]")
+	WebElement loginAsHeader;
+
 	public boolean isLoginHeaderPresent() {
 
 		logger.info("Verifying loginHeader");
 		boolean isPresent = loginHeader.isDisplayed();
+		return isPresent;
+
+	}
+
+	public boolean isUserNameHeaderPresent() {
+
+		logger.info("Verifying username header");
+		boolean isPresent = userNameHeader.isDisplayed();
+		return isPresent;
+
+	}
+
+	public boolean isPasswordHeaderPresent() {
+
+		logger.info("Verifying password header");
+		boolean isPresent = passwordHeader.isDisplayed();
+		return isPresent;
+
+	}
+
+	public boolean isLoginAsHeaderPresent() {
+
+		logger.info("Verifying loginAS header");
+		boolean isPresent = loginAsHeader.isDisplayed();
 		return isPresent;
 
 	}
