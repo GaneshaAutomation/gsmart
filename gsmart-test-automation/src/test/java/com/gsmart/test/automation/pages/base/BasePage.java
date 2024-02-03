@@ -18,6 +18,7 @@ public class BasePage {
 
 	public static WebDriver driver;
 	public static final Logger logger = LogManager.getLogger(BasePage.class);
+	private static final String WebElement = null;
 
 	public BasePage() {
 		super();
@@ -36,16 +37,82 @@ public class BasePage {
 
 	@FindBy(linkText = "Exercise")
 	WebElement exerciseLink;
-	
+
 	@FindBy(xpath = "//h2[contains(text(),'GS Mart')]")
 	WebElement mainHeader;
+
+	@FindBy(xpath = "//h3[contains(text(),'Contact')]")
+	WebElement contactFooter;
+
+	@FindBy(xpath = "//em[contains(text(),'We')]")
+	WebElement weLoveFooter;
+
+	@FindBy(id = "comments")
+	WebElement commentsFooter;
 	
+	@FindBy(xpath = "//p[contains(text(),'Student?')]")
+	WebElement studentNoteFooter;
+	
+	@FindBy(xpath = "//span[contains(@class,'glyphicon glyphicon-map')]")
+	WebElement footerGaneshText;
+	
+	@FindBy(id="email")
+	WebElement emailBoxFooter;
+	
+	
+	public boolean isEmailFooterBoxPresent() {
+		logger.info("Verifying emailBox Footer ");
+		boolean present = emailBoxFooter.isDisplayed();
+		return present;
+	}
+	
+	
+	
+		public boolean isCommentsFooterBoxPresent() {
+		logger.info("Verifying Comments Footer box ");
+		boolean present = commentsFooter.isDisplayed();
+		return present;
+	}
+	public boolean isfooterGaneshTextPresent() {
+		logger.info("Verifying  Footer ganesh text ");
+		boolean present =footerGaneshText.isDisplayed();
+		return present;
+	}
+
+	public void clearCommentsFooterBox() {
+		logger.info("Clearing the Comments footer box ");
+		commentsFooter.clear();
+	}
+	
+	public boolean isStudentNoteFooterPresent() {
+		logger.info("Verifying Student Note Footer ");
+		boolean present = studentNoteFooter.isDisplayed();
+		return present;
+	}
+
+	
+	public void typingFooterComment(String comment) {
+		logger.info("Typing the Comments in footer box ");
+		commentsFooter.sendKeys(comment);
+	}
+
+	public boolean isContactFooterPresent() {
+		logger.info("Verifying Contact Footer");
+		boolean present = contactFooter.isDisplayed();
+		return present;
+	}
+
+	public boolean isWeLoveFooterPresent() {
+		logger.info("Verifying We Love Footer");
+		boolean present = weLoveFooter.isDisplayed();
+		return present;
+	}
+
 	public boolean isMainHeaderPresent() {
 		logger.info("Verifying mainHeader");
 		boolean present = mainHeader.isDisplayed();
 		return present;
 	}
-	
 
 	public boolean isExerciseLinkPresent() {
 		logger.info("Verifying exerciseLink");
