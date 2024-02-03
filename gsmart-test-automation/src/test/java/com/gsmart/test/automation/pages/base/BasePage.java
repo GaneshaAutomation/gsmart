@@ -49,6 +49,10 @@ public class BasePage {
 
 	@FindBy(id = "comments")
 	WebElement commentsFooter;
+	
+	@FindBy(xpath = "//p[contains(text(),'Student?')]")
+	WebElement studentNoteFooter;
+	
 
 	public boolean isCommentsFooterBoxPresent() {
 		logger.info("Verifying Comments Footer box ");
@@ -60,7 +64,14 @@ public class BasePage {
 		logger.info("Clearing the Comments footer box ");
 		commentsFooter.clear();
 	}
+	
+	public boolean isStudentNoteFooterPresent() {
+		logger.info("Verifying Student Note Footer ");
+		boolean present = studentNoteFooter.isDisplayed();
+		return present;
+	}
 
+	
 	public void typingFooterComment(String comment) {
 		logger.info("Typing the Comments in footer box ");
 		commentsFooter.sendKeys(comment);
