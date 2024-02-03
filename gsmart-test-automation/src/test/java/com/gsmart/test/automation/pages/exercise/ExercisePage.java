@@ -16,10 +16,19 @@ public class ExercisePage extends BasePage {
 	// Actions, Navigations
 	@FindBy(xpath = "//button[contains(text(),'Cor')]")
 	WebElement corpInfo;
+	
+	@FindBy(xpath = " //button[contains(text(),\"SocialMedia\")]")
+	WebElement socialMedia;
 
 	public boolean isCorpInfoPresent() {
 		logger.info("Verifying Corp info tab");
 		boolean isPresent = corpInfo.isDisplayed();
+		return isPresent;
+	}
+	
+	public boolean isSocialMediaPresent() {
+		logger.info("Verifying Social Media Button");
+		boolean isPresent = socialMedia.isDisplayed();
 		return isPresent;
 	}
 
