@@ -56,11 +56,19 @@ public class BasePage {
 	@FindBy(xpath = "//span[contains(@class,'glyphicon glyphicon-map')]")
 	WebElement footerGaneshText;
 	
+	@FindBy(id="email")
+	WebElement emailBoxFooter;
+	
+	
+	public boolean isEmailFooterBoxPresent() {
+		logger.info("Verifying emailBox Footer ");
+		boolean present = emailBoxFooter.isDisplayed();
+		return present;
+	}
 	
 	
 	
-
-	public boolean isCommentsFooterBoxPresent() {
+		public boolean isCommentsFooterBoxPresent() {
 		logger.info("Verifying Comments Footer box ");
 		boolean present = commentsFooter.isDisplayed();
 		return present;
