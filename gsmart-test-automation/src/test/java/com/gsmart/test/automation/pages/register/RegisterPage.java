@@ -29,6 +29,42 @@ public class RegisterPage extends BasePage {
 	@FindBy(name="address")
 	WebElement addressField;
 	
+	@FindBy(name="mobile")
+	WebElement mobileField;
+	
+	@FindBy(name="pincode")
+	WebElement pincodeField;
+	
+	@FindBy(name="password")
+	WebElement passwordField;
+	
+	@FindBy(name="confirmPassword")
+	WebElement confirmPasswordField;
+	
+	public boolean isConfirmPasswordFieldPresent() {
+		logger.info("Verifying the ConfirmpasswordField ");
+		boolean isPresent = confirmPasswordField.isDisplayed();
+		return isPresent;
+	}
+	
+	public boolean isPasswordFieldPresent() {
+		logger.info("Verifying the passwordField ");
+		boolean isPresent = passwordField.isDisplayed();
+		return isPresent;
+	}
+	
+	public boolean isPincodeFieldPresent() {
+		logger.info("Verifying the pincodeField ");
+		boolean isPresent = pincodeField.isDisplayed();
+		return isPresent;
+	}
+	
+	public boolean isMobileFieldPresent() {
+		logger.info("Verifying the MobileField ");
+		boolean isPresent = mobileField.isDisplayed();
+		return isPresent;
+	}
+	
 	public boolean isAddressFieldPresent() {
 		logger.info("Verifying the addressField ");
 		boolean isPresent = addressField.isDisplayed();
@@ -42,8 +78,6 @@ public class RegisterPage extends BasePage {
 		return isPresent;
 	}
 	
-	
-
 	
 	public boolean isnameFieldPresent() {
 		logger.info("Verifying the nameField ");
