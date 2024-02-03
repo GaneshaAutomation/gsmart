@@ -36,6 +36,16 @@ public class BasePage {
 
 	@FindBy(linkText = "Exercise")
 	WebElement exerciseLink;
+	
+	@FindBy(xpath = "//h2[contains(text(),'GS Mart')]")
+	WebElement mainHeader;
+	
+	public boolean isMainHeaderPresent() {
+		logger.info("Verifying mainHeader");
+		boolean present = mainHeader.isDisplayed();
+		return present;
+	}
+	
 
 	public boolean isExerciseLinkPresent() {
 		logger.info("Verifying exerciseLink");
