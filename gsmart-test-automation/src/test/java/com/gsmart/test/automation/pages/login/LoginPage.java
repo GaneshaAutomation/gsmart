@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.gsmart.test.automation.pages.base.BasePage;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
 
 	// All Elements of the page
 
@@ -18,13 +18,12 @@ public class LoginPage extends BasePage{
 
 	@FindBy(xpath = "//h2[contains(text(),'Login Form')]")
 	WebElement loginHeader;
-	
+
 	@FindBy(name = "username")
 	WebElement userNameField;
-	
+
 	@FindBy(name = "password")
 	WebElement passwordField;
-	
 
 	public boolean isLoginHeaderPresent() {
 
@@ -41,12 +40,35 @@ public class LoginPage extends BasePage{
 		return isPresent;
 
 	}
-	
+
 	public boolean isPasswordFieldPresent() {
 
 		logger.info("Verifying password field");
 		boolean isPresent = passwordField.isDisplayed();
 		return isPresent;
+
+	}
+
+	public void typeUsername(String username) {
+		logger.info("Typing Username field");
+		userNameField.sendKeys(username);
+
+	}
+
+	public void clearUsername() {
+		logger.info("Clearing Username field");
+		userNameField.clear();
+
+	}
+
+	public void typePassword(String password) {
+		logger.info("Typing Password field");
+		passwordField.sendKeys(password);
+	}
+
+	public void clearPassword() {
+		logger.info("Clearing Password field");
+		passwordField.clear();
 
 	}
 }
