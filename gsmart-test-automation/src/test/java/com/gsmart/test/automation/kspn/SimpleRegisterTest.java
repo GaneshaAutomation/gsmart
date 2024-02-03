@@ -32,5 +32,12 @@ public class SimpleRegisterTest extends GsmartBaseTest{
 		Assert.assertTrue(registerPage.isRegisterButtonPresent(), "Register button not present");
 	}
 	
+	@Test(dependsOnMethods = "resetAndRegValidationTest")
+	public void nameEmailAddValidationTest() {
+		Assert.assertTrue(registerPage.isnameFieldPresent(), "NameField is not Present");
+		Assert.assertTrue(registerPage.isEmailFieldPresent(), "EmailField is not Present");
+		Assert.assertTrue(registerPage.isAddressFieldPresent(), "addressField is not Present");
+	}
+	
 
 }
