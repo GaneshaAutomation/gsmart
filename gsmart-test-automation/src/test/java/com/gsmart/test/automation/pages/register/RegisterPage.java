@@ -16,82 +16,81 @@ public class RegisterPage extends BasePage {
 
 	@FindBy(xpath = "//button[contains(text(),'Reset')]")
 	WebElement resetButton;
-	
+
 	@FindBy(xpath = "//button[contains(text(),'Register')]")
 	WebElement registerButton;
-	
-	@FindBy(id="first_name")
+
+	@FindBy(id = "first_name")
 	WebElement nameField;
-	
-	@FindBy(id="last_name")
+
+	@FindBy(id = "last_name")
 	WebElement emailField;
-	
-	@FindBy(name="address")
+
+	@FindBy(name = "address")
 	WebElement addressField;
-	
-	@FindBy(name="mobile")
+
+	@FindBy(name = "mobile")
 	WebElement mobileField;
-	
-	@FindBy(name="pincode")
+
+	@FindBy(name = "pincode")
 	WebElement pincodeField;
-	
-	@FindBy(name="password")
+
+	@FindBy(name = "password")
 	WebElement passwordField;
-	
-	@FindBy(name="confirmPassword")
+
+	@FindBy(name = "confirmPassword")
 	WebElement confirmPasswordField;
-	
+
 	public boolean isConfirmPasswordFieldPresent() {
 		logger.info("Verifying the ConfirmpasswordField ");
 		boolean isPresent = confirmPasswordField.isDisplayed();
 		return isPresent;
 	}
-	
+
 	public boolean isPasswordFieldPresent() {
 		logger.info("Verifying the passwordField ");
 		boolean isPresent = passwordField.isDisplayed();
 		return isPresent;
 	}
-	
+
 	public boolean isPincodeFieldPresent() {
 		logger.info("Verifying the pincodeField ");
 		boolean isPresent = pincodeField.isDisplayed();
 		return isPresent;
 	}
-	
+
 	public boolean isMobileFieldPresent() {
 		logger.info("Verifying the MobileField ");
 		boolean isPresent = mobileField.isDisplayed();
 		return isPresent;
 	}
-	
+
 	public boolean isAddressFieldPresent() {
 		logger.info("Verifying the addressField ");
 		boolean isPresent = addressField.isDisplayed();
 		return isPresent;
 	}
-	
-	
+
 	public boolean isEmailFieldPresent() {
 		logger.info("Verifying the emailField ");
 		boolean isPresent = emailField.isDisplayed();
 		return isPresent;
 	}
-	
-	
+
 	public boolean isnameFieldPresent() {
 		logger.info("Verifying the nameField ");
 		boolean isPresent = nameField.isDisplayed();
 		return isPresent;
 
 	}
-	
+
 	public boolean isResetButtonPresent() {
 		logger.info("Verifying the Reset Button");
 		boolean isPresent = resetButton.isDisplayed();
 		return isPresent;
 
 	}
+
 	public boolean isRegisterButtonPresent() {
 		logger.info("Verifying the Register Button");
 		boolean isPresent = registerButton.isDisplayed();
@@ -105,5 +104,24 @@ public class RegisterPage extends BasePage {
 		return isPresent;
 
 	}
+
+	public void enterName(String name) {
+		logger.info("enter the name");
+		nameField.sendKeys(name);
+
+	}
+
+	public void enterEmail(String email) {
+		logger.info("enter the email");
+		emailField.sendKeys(email);
+	}
+	public void clickResetButton() {
+		logger.info("Clicking on ResetButton");
+		resetButton.click();
+	}
+	
+	
+	
+	
 
 }
