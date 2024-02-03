@@ -53,10 +53,21 @@ public class BasePage {
 	@FindBy(xpath = "//p[contains(text(),'Student?')]")
 	WebElement studentNoteFooter;
 	
+	@FindBy(xpath = "//span[contains(@class,'glyphicon glyphicon-map')]")
+	WebElement footerGaneshText;
+	
+	
+	
+	
 
 	public boolean isCommentsFooterBoxPresent() {
 		logger.info("Verifying Comments Footer box ");
 		boolean present = commentsFooter.isDisplayed();
+		return present;
+	}
+	public boolean isfooterGaneshTextPresent() {
+		logger.info("Verifying  Footer ganesh text ");
+		boolean present =footerGaneshText.isDisplayed();
 		return present;
 	}
 
