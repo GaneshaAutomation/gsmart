@@ -14,6 +14,26 @@ public class RegisterPage extends BasePage {
 	@FindBy(xpath = "//h2[contains(text(),'Registration Form')]")
 	WebElement registerHeader;
 
+	@FindBy(xpath = "//button[contains(text(),'Reset')]")
+	WebElement resetButton;
+	
+	@FindBy(xpath = "//button[contains(text(),'Register')]")
+	WebElement registerButton;
+	
+	
+	public boolean isResetButtonPresent() {
+		logger.info("Verifying the Reset Button");
+		boolean isPresent = resetButton.isDisplayed();
+		return isPresent;
+
+	}
+	public boolean isRegisterButtonPresent() {
+		logger.info("Verifying the Register Button");
+		boolean isPresent = registerButton.isDisplayed();
+		return isPresent;
+
+	}
+
 	public boolean isRegHeaderPresent() {
 		logger.info("Verifying the reg header");
 		boolean isPresent = registerHeader.isDisplayed();
