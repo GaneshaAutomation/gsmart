@@ -9,9 +9,9 @@ import com.gsmart.test.automation.base.GsmartBaseTest;
 import com.gsmart.test.automation.pages.exercise.ExercisePage;
 import com.gsmart.test.automation.pages.home.HomePage;
 
-public class ExerciseAndCityDd extends GsmartBaseTest {
+public class ExerciseAndCarDd extends GsmartBaseTest {
 
-	public static final Logger logger = LogManager.getLogger(ExerciseAndCityDd.class);
+	public static final Logger logger = LogManager.getLogger(ExerciseAndCarDd.class);
 
 	HomePage homePage;
 	ExercisePage exercisePage;
@@ -28,10 +28,13 @@ public class ExerciseAndCityDd extends GsmartBaseTest {
 	}
 
 	@Test(dependsOnMethods = "launchAndExerciseTabTest")
-	public void cityDDTest() {
+	public void carDDTest() {
 
-		exercisePage.selectCityDd("Gilroy");
+		exercisePage.selectCarDd("Tesla");
 
 	}
 
 }
+
+
+
