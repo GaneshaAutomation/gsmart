@@ -6,11 +6,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.gsmart.test.automation.base.GsmartBaseTest;
-import com.gsmart.test.automation.login.LoginHeaderTest;
 import com.gsmart.test.automation.pages.home.HomePage;
 import com.gsmart.test.automation.pages.register.RegisterPage;
 
-public class SimpleRegisterTest extends GsmartBaseTest{
+public class SimpleRegister2Test extends GsmartBaseTest{
 	public static final Logger logger = LogManager.getLogger(SimpleRegisterTest.class);
 	HomePage homePage;
 	RegisterPage registerPage;
@@ -27,11 +26,10 @@ public class SimpleRegisterTest extends GsmartBaseTest{
 
 	}
 	@Test(dependsOnMethods = "registerTest")
-	public void resetAndRegValidationTest() {
-		Assert.assertTrue(registerPage.isResetButtonPresent(), "Reset button not present");
-		Assert.assertTrue(registerPage.isRegisterButtonPresent(), "Register button not present");
+	public void nameEmailAddValidationTest() {
+		Assert.assertTrue(registerPage.isnameFieldPresent(), "NameField is not Present");
+		Assert.assertTrue(registerPage.isEmailFieldPresent(), "EmailField is not Present");
+		Assert.assertTrue(registerPage.isAddressFieldPresent(), "addressField is not Present");
 	}
 	
-	
-
 }
