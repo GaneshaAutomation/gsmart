@@ -29,10 +29,20 @@ public class ExercisePage extends BasePage {
 
 	@FindBy(id = "generation")
 	WebElement ageDropDown;
+	
+	@FindBy(id="txtInput")
+	WebElement captchaInputBox;
+	
 
 	public boolean isCarDropDownPresent() {
 		logger.info("Verifying car dropdown");
 		boolean isPresent = carDropDown.isDisplayed();
+		return isPresent;
+	}
+	
+	public boolean isCaptchaInputBoxPresent() {
+		logger.info("Verifying captchaInputBox");
+		boolean isPresent = captchaInputBox.isDisplayed();
 		return isPresent;
 	}
 
@@ -82,5 +92,10 @@ public class ExercisePage extends BasePage {
 		Select ageDropdown = new Select(ageDropDown);
 		ageDropdown.selectByIndex(age);
 
+	}
+	
+	public void enterCaptchaCode(String code) {
+		logger.info("Entering the captcha "+code);
+		captchaInputBox.sendKeys(code);
 	}
 }

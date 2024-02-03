@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -26,7 +27,12 @@ public class BasePage {
 
 	}
 
-	@FindBy(linkText = "login")
+	// Challenge
+	// WebElement has different locators across the environments
+	// Fix : There is a solution in PageFacrtory, that is @FindAll
+	// FindAll can take multiple locators
+	// Find the match
+	@FindAll({ @FindBy(linkText = "Login"), @FindBy(linkText = "login") })
 	WebElement loginLink;
 
 	@FindBy(linkText = "Shopping Center")
@@ -49,33 +55,31 @@ public class BasePage {
 
 	@FindBy(id = "comments")
 	WebElement commentsFooter;
-	
+
 	@FindBy(xpath = "//p[contains(text(),'Student?')]")
 	WebElement studentNoteFooter;
-	
+
 	@FindBy(xpath = "//span[contains(@class,'glyphicon glyphicon-map')]")
 	WebElement footerGaneshText;
-	
-	@FindBy(id="email")
+
+	@FindBy(id = "email")
 	WebElement emailBoxFooter;
-	
-	
+
 	public boolean isEmailFooterBoxPresent() {
 		logger.info("Verifying emailBox Footer ");
 		boolean present = emailBoxFooter.isDisplayed();
 		return present;
 	}
-	
-	
-	
-		public boolean isCommentsFooterBoxPresent() {
+
+	public boolean isCommentsFooterBoxPresent() {
 		logger.info("Verifying Comments Footer box ");
 		boolean present = commentsFooter.isDisplayed();
 		return present;
 	}
+
 	public boolean isfooterGaneshTextPresent() {
 		logger.info("Verifying  Footer ganesh text ");
-		boolean present =footerGaneshText.isDisplayed();
+		boolean present = footerGaneshText.isDisplayed();
 		return present;
 	}
 
@@ -83,14 +87,13 @@ public class BasePage {
 		logger.info("Clearing the Comments footer box ");
 		commentsFooter.clear();
 	}
-	
+
 	public boolean isStudentNoteFooterPresent() {
 		logger.info("Verifying Student Note Footer ");
 		boolean present = studentNoteFooter.isDisplayed();
 		return present;
 	}
 
-	
 	public void typingFooterComment(String comment) {
 		logger.info("Typing the Comments in footer box ");
 		commentsFooter.sendKeys(comment);
