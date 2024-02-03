@@ -18,6 +18,13 @@ public class LoginPage extends BasePage{
 
 	@FindBy(xpath = "//h2[contains(text(),'Login Form')]")
 	WebElement loginHeader;
+	
+	@FindBy(name = "username")
+	WebElement userNameField;
+	
+	@FindBy(name = "password")
+	WebElement passwordField;
+	
 
 	public boolean isLoginHeaderPresent() {
 
@@ -27,4 +34,19 @@ public class LoginPage extends BasePage{
 
 	}
 
+	public boolean isUserNameFieldPresent() {
+
+		logger.info("Verifying username field");
+		boolean isPresent = userNameField.isDisplayed();
+		return isPresent;
+
+	}
+	
+	public boolean isPasswordFieldPresent() {
+
+		logger.info("Verifying password field");
+		boolean isPresent = passwordField.isDisplayed();
+		return isPresent;
+
+	}
 }
