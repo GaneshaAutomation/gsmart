@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 import com.gsmart.test.automation.pages.base.BasePage;
 
@@ -33,7 +34,23 @@ public class LoginPage extends BasePage {
 
 	@FindBy(xpath = "//label[contains(text(),'Login As')]")
 	WebElement loginAsHeader;
+	
+	@FindBy(id = "userrole")
+	WebElement userRole;
+	
+	public boolean isUserRoleDropDownPresent() {
 
+		logger.info("Verifying UserRoleDropDown");
+		boolean isPresent = userRole.isDisplayed();
+		return isPresent;
+	}
+	public void selectAdminFromDropdown() {
+		logger.info("selecting selectAdminFromDropdown");
+		Select userRoleDropdown = new Select(userRole);
+		userRoleDropdown.selectByVisibleText("ADMIN");
+	
+	
+	}
 	public boolean isLoginHeaderPresent() {
 
 		logger.info("Verifying loginHeader");
