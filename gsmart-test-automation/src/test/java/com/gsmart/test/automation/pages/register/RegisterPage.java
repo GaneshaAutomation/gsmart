@@ -21,8 +21,6 @@ public class RegisterPage extends BasePage {
 	@FindBy(xpath = "//button[contains(text(),'Reset')]")
 	WebElement resetButton;
 
-	@FindBy(xpath = "//button[contains(text(),'Register')]")
-	WebElement registerButton;
 
 	@FindBy(id = "first_name")
 	WebElement nameField;
