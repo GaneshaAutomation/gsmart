@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import com.gsmart.test.automation.pages.base.BasePage;
+import com.gsmart.test.automation.pages.home.HomePage;
 
 public class ExercisePage extends BasePage {
 
@@ -32,6 +33,8 @@ public class ExercisePage extends BasePage {
 	
 	@FindBy(id="txtInput")
 	WebElement captchaInputBox;
+	
+
 	
 
 	public boolean isCarDropDownPresent() {
@@ -97,5 +100,12 @@ public class ExercisePage extends BasePage {
 	public void enterCaptchaCode(String code) {
 		logger.info("Entering the captcha "+code);
 		captchaInputBox.sendKeys(code);
+	}
+
+	public HomePage clickInternalHome() {
+		logger.info("clicking the internal home link ");
+		HomePage homePage = new HomePage();
+		logoLink.click();
+		return homePage;
 	}
 }

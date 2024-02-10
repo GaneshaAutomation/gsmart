@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import com.gsmart.test.automation.pages.base.BasePage;
+import com.gsmart.test.automation.pages.home.HomePage;
 
 public class LoginPage extends BasePage {
 
@@ -25,6 +26,9 @@ public class LoginPage extends BasePage {
 
 	@FindBy(name = "username")
 	WebElement userNameField;
+	
+	@FindBy(id = "home1")
+	WebElement localHomeLink;
 
 	@FindBy(name = "password")
 	WebElement passwordField;
@@ -128,5 +132,11 @@ public class LoginPage extends BasePage {
 		logger.info("Clearing Password field");
 		passwordField.clear();
 
+	}
+	public HomePage clickInternalHome() {
+		logger.info("clicking the internal home link ");
+		HomePage homePage = new HomePage();
+		localHomeLink.click();
+		return homePage;
 	}
 }

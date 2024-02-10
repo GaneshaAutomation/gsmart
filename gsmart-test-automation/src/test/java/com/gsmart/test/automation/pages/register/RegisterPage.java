@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.gsmart.test.automation.pages.base.BasePage;
+import com.gsmart.test.automation.pages.home.HomePage;
 
 public class RegisterPage extends BasePage {
 
@@ -39,6 +40,10 @@ public class RegisterPage extends BasePage {
 
 	@FindBy(name = "password")
 	WebElement passwordField;
+	
+	
+	@FindBy(id = "home7")
+	WebElement localHomeLink;
 
 	@FindBy(name = "confirmPassword")
 	WebElement confirmPasswordField;
@@ -127,7 +132,12 @@ public class RegisterPage extends BasePage {
 		resetButton.click();
 	}
 	
-	
+	public HomePage clickInternalHome() {
+		logger.info("clicking the internal home link ");
+		HomePage homePage = new HomePage();
+		localHomeLink.click();
+		return homePage;
+	}
 	
 	
 

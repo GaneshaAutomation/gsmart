@@ -13,7 +13,7 @@ import com.gsmart.test.automation.pages.home.HomePage;
 import com.gsmart.test.automation.pages.login.LoginPage;
 import com.gsmart.test.automation.pages.register.RegisterPage;
 
-public class BasePage {
+public abstract class BasePage {
 
 	// ALl common components for pages wil l be added here
 
@@ -36,7 +36,7 @@ public class BasePage {
 	WebElement loginLink;
 
 	@FindBy(linkText = "Shopping Center")
-	WebElement logoLink;
+	protected WebElement logoLink;
 
 	@FindBy(linkText = "Register")
 	WebElement registerLink;
@@ -64,6 +64,7 @@ public class BasePage {
 
 	@FindBy(id = "email")
 	WebElement emailBoxFooter;
+	
 
 	public boolean isEmailFooterBoxPresent() {
 		logger.info("Verifying emailBox Footer ");
@@ -147,6 +148,9 @@ public class BasePage {
 		HomePage homePage = new HomePage();
 		return homePage;
 	}
+	
+	public abstract HomePage clickInternalHome();
+
 
 	public ExercisePage clickOnExercise() {
 		logger.info("Clikcing on Exercise ");
