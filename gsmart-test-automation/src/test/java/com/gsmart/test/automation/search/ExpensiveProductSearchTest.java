@@ -14,9 +14,9 @@ import com.gsmart.test.automation.base.GsmartBaseTest;
 import com.gsmart.test.automation.pages.home.HomePage;
 import com.gsmart.test.automation.utils.DBReader;
 
-public class SimpleSearchTest extends GsmartBaseTest {
+public class ExpensiveProductSearchTest extends GsmartBaseTest {
 
-	public static final Logger logger = LogManager.getLogger(SimpleSearchTest.class);
+	public static final Logger logger = LogManager.getLogger(ExpensiveProductSearchTest.class);
 
 	HomePage homePage;
 
@@ -32,11 +32,12 @@ public class SimpleSearchTest extends GsmartBaseTest {
 
 	// Test2 - Search for Redmi and verify the success message
 	@Test(dependsOnMethods = "launchAndVerifySearchBoxTest")
-	public void searchTest() throws Exception{
+	public void searchTest() throws Exception {
 		// Type Redmi in the search box
 		// This test needs dynamic test data from database
-		
-		String productName =DBReader.getFirstProduct();
+
+		String productName = DBReader.getExpensiveProduct();
+
 		homePage.searchForProduct(productName);
 		homePage.clickOnSearchButton();
 		Assert.assertTrue(homePage.isSuccessMessageForSearchPresent(), "Search result is not fetched");

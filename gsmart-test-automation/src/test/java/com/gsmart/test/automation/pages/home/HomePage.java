@@ -26,6 +26,11 @@ public class HomePage  extends BasePage{
 	@FindBy(name = "search")
 	WebElement searchBox;
 
+	
+	
+	@FindBy(id = "home2")
+	WebElement localHomeLink;
+	
 	@FindBy(xpath = "//input[@value='Search']")
 	WebElement searchButton;
 
@@ -95,5 +100,19 @@ public class HomePage  extends BasePage{
 		buyNowButton.click();
 		LoginPage loginPage = new LoginPage();
 		return loginPage;
+	}
+	public void clickOnAddToCartButton() {
+		logger.info("Clicking on add to cart");
+		addToCartBtn.click();
+		
+		
+	}
+
+	@Override
+	public HomePage clickInternalHome() {
+		logger.info("clicking the internal home link ");
+		HomePage homePage = new HomePage();
+		localHomeLink.click();
+		return homePage;
 	}
 }

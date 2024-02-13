@@ -1,5 +1,7 @@
 package com.gsmart.test.automation.base;
 
+import java.util.concurrent.TimeUnit;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +19,7 @@ import com.gsmart.test.automation.utils.PropertyReader;
 
 @Listeners(GsmartListner.class)
 public class GsmartBaseTest {
-	
+
 	public static final Logger logger = LogManager.getLogger(GsmartBaseTest.class);
 
 	// WebDriver
@@ -65,7 +67,8 @@ public class GsmartBaseTest {
 			driver = new SafariDriver();
 
 		}
-		
+
+		driver.manage().timeouts().implicitlyWait(21, TimeUnit.SECONDS);
 		// Once the driver is loaded with the browser, give it to listener
 		GsmartListner.driver = driver;
 		BasePage.driver = driver;
